@@ -17,12 +17,76 @@ The FASTQC outputs can be found here <b><a href='https://drive.google.com/drive/
 </p>
 
 <p>
-<b>Step 3: Setting up a batch file for CRISPResso2</b><br>Batch file for a CRISPResso2 run is a .txt file with various 
+<b>Step 3: Installing Docker and running CRISPResso</b><br>Installing CRISPResso via the Docker is the easiest way to use
+it. The way to do this is explained <a href="https://github.com/pinellolab/CRISPResso2#docker" target="_blank">here</a>.
+</p>
+
+<p>
+<b>Step 4: Setting up a batch file for CRISPResso2</b><br>Batch file for a CRISPResso2 run is a .txt file with various 
 columns indicating different parameters for each sample in the run. The different columns are as described below: 
 <ol>
-    <li>Generate a name of the format, "BEV_sample_number_primerpair" 
-for each sample. For example, the name for sample 1 would be BEV_001_F1_A1_R1_A1, where 001 is the sample number and 
-F1_A1 is the forward primer and R1_A1 is the reverse primer.
-
-
-
+    <li><b>name</b>: Generate a name of the format, <font color="#8b0000"> BEV_sample_number_primerpair</font>
+    for each sample. For example, <font color="blue">the name for sample 1 would be BEV_001_F1_A1_R1_A1, where 001 is 
+    the sample number and F1_A1 is the forward primer and R1_A1 is the reverse primer</font>.</li>
+    <li><b>fastq_r1</b>: Path to relevant demultiplexed FASTQ input files. It is recommended that you have all FASTQ
+    inputs in a single folder.</li>
+    <li><b>amplicon_seq</b>: Relevant reference sequence for each sample. It is recommended to include the forward 
+    and the reverse primers in the reference sequence.</li>
+    <li><b>guide_seq</b>: Sequence of sgRNA for each sample.</li>
+    <li><b>Other parameters</b>: The following parameters can be included as columns in the batch file if they are 
+    different for each sample. If they are the same for every sample, they can just be included in the syntax while 
+    running CRISPResso. For more information on what each of these parameters do, please read the documentation 
+    <a href="https://github.com/pinellolab/CRISPResso2" target="_blank">here</a>. </li>
+    <ul>
+        <li><b>-w or --quantification_window_size or --window_around_sgrna </b>: (default: 1) For base editors, we 
+        recommend using <font color="blue"> 20 </font>. Please bear in mind that a wider window results in more reads 
+        with sequencing errors being classified as edited. For knockout experiments, the recommendation is to use the 
+        default value.</li>
+        <li><b>-wc or --quantification_window_center or --cleavage_offset</b>: (default: -3) For base editors, we 
+        recommend using the center of the guide, i.e. <font color="blue"> -10 </font>. The default value, i.e. the cut 
+        position, can be used for SpCas9 knockout experiments. This parameter can be varied accordingly based on the 
+        cut position of the nuclease used.</li>
+        <li><b>--exclude_bp_from_left</b>: Due to the presence of stagger sequences in our vectors, reads need to be 
+        trimmed and the provided trimming adapters cannot be used. This parameter can be toggled appropriately depending
+        on the position of the sgRNA in the amplicon sequence to trim the reads. </li>
+        <li><b>--exclude_bp_from_right</b>: This argument can be used to trim reads that have low sequencing quality at 
+        at the ends.</li>
+    </ul>
+</ol>
+<p><b>Sample batch file shown below:</b></p>
+<table>
+    <tbody>
+        <tr>
+            <th><b>name</b></th>
+            <th><b>fastq_r1</b></th>
+            <th><b>amplicon_seq</b></th>
+            <th><b>guide_seq</b></th>
+            <th><b>w</b></th>
+            <th><b>wc</b></th>
+        </tr>
+        <tr>
+            <td>BEV_010_F1_A1_R1_A1</td>
+            <td>validation-inputs/BEV/Plate1/BEV_010_F1_A1_R1_A1.construct.fastq.gz</td>
+            <td>GCTATTTAGTGTTATCCAAGGAACATCTTCAGTATCTCTAGGATTCTCTGAGCATGGCAGTTTCTGCTTAT</td>
+            <td>GGAACATCTTCAGTATCTCT</td>
+            <td>20</td>
+            <td>-10</td>
+        </tr>
+        <tr>
+            <td>BEV_016_F1_A2_R1_A2</td>
+            <td>validation-inputs/BEV/Plate1/BEV_016_F1_A2_R1_A2.construct.fastq.gz</td>
+            <td>TTATATACCTTTTGGTTATATCATTCTTACATAAAGGACACTGTGAAGGCCCTTTCTTCTGGTTGAGAA</td>
+            <td>GTTATATCATTCTTACATAA</td>
+            <td>1</td>
+            <td>-3</td>
+        </tr>
+    </tbody>
+</table>
+<p>
+<b>Few additional tips/tricks:</b>
+<ul>
+    <li>For experiments with both knockout and base editor samples, the quantification window size and window center 
+    parameters can be toggled appropriately to run all samples together.</li>
+    <li></li>
+</ul>
+</p>
