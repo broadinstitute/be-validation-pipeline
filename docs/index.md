@@ -27,7 +27,7 @@ it. The way to do this is explained <a href="https://github.com/pinellolab/CRISP
 columns indicating different parameters for each sample in the run. This batch file should also be placed in the folder 
 created for the CRISPResso2 run. The different columns in a batch file are as described below: 
 <ol>
-    <li><b>name</b>: Generate a name of the format, <font color="#8b0000"> BEV_sample_number_primerpair</font>
+    <li><b>name</b>: Generate a name of the format, <font color="#8b0000"> BEV_samplenumber_primerpair</font>
     for each sample. For example, <font color="blue">the name for sample 1 would be BEV_001_F1_A1_R1_A1, where 001 is 
     the sample number and F1_A1 is the forward primer and R1_A1 is the reverse primer</font>.</li>
     <li><b>fastq_r1</b>: Path to relevant demultiplexed FASTQ input files. It is recommended that you have all FASTQ
@@ -108,6 +108,6 @@ indicated by the "w" and "wc" columns.</p>
     if one sample fails. The failed sample can be identified in the RUNNING_LOG file. </li>
     <li>One common error you may encounter is <b>"CRISPResso batch #x was killed by your system. Please decrease the 
     number of processes (-p) and run again."</b> Using  the --suppress-plots or --suppress-report arguments might fix this 
-    error.  If not, please try increasing the number of resources such as "CPUs" and "Memory" in your  Docker 
+    error.  If not, please try increasing the number of resources such as "CPUs" and "Memory" in your Docker 
     preferences.</li>
 </ul>
