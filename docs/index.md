@@ -18,7 +18,7 @@ for every new run. The FASTQC outputs can be found here <b><a href='https://driv
 </p>
 
 <p>
-<b>Step 3: Installing Docker to run CRISPResso2</b><br>Installing CRISPResso via the Docker is the easiest way to use
+<b>Step 3: Installing Docker to run CRISPResso2</b><br>Installing CRISPResso via Docker is the easiest way to use
 it. The way to do this is explained <a href="https://github.com/pinellolab/CRISPResso2#docker" target="_blank">here</a>.
 </p>
 
@@ -107,5 +107,7 @@ indicated by the "w" and "wc" columns.</p>
     <li>--skip_failed is a good argument to use while running batch mode. This argument makes sure the job does not quit
     if one sample fails. The failed sample can be identified in the RUNNING_LOG file. </li>
     <li>One common error you may encounter is <b>"CRISPResso batch #x was killed by your system. Please decrease the 
-    number of processes (-p) and run again."</b></li>
+    number of processes (-p) and run again."</b> Using  the --suppress-plots or --suppress-report arguments might fix this 
+    error.  If not, please try increasing the number of resources such as "CPUs" and "Memory" in your  Docker 
+    preferences.</li>
 </ul>
