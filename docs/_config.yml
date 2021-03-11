@@ -2,4 +2,4 @@ title: Base editor validation pipeline
 description: Base editor screen validation analysis pipeline using CRISPResso2 \
 theme: jekyll-theme-cayman
 github:
-  is_project_page: true
+  is_project_page: false
