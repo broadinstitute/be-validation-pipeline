@@ -1,7 +1,8 @@
 # Base editor validation pipeline
 
 ## Base editor screen validation analysis pipeline using CRISPResso2 
-This repository helps set up an analysis pipeline to analyze base editor validation experiments using CRISPResso2.
+This repository helps set up an analysis pipeline to analyze base editor validation experiments using CRISPResso2 
+(https://github.com/pinellolab/CRISPResso2).
 <p>
 <b>Step 1: Downloading & demultiplexing files</b><br>Once sequencing files are received from WalkUp, please use the 
 "Setup.ipynb" notebook to download files, demultiplex files if necessary, make a backup and run FASTQC (quality check) 
