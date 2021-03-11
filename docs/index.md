@@ -11,19 +11,21 @@ on the files.
 <p>
 <b>Step 2: Accessing sequencing files for CRISPResso2</b><br>Once the setup notebook has been run the sequencing files 
 should be available at <b><a href='https://drive.google.com/drive/folders/1uMXOLjvfY9TNlhwj0fVcTp6k2-heQe0c'>"GPP Cloud 
->R&D>Sequencing_Backup"</a></b>. They can be downloaded from here on to your local machine for running CRISPResso2. 
-The FASTQC outputs can be found here <b><a href='https://drive.google.com/drive/folders/1NhOYq3_P2Jr3aj_K0KbU1f-9iSWBbKso'>
+>R&D>Sequencing_Backup"</a></b>. They can be downloaded from here on to your local machine for running CRISPResso2. The
+input files should all be in the folder where you will run CRISPResso2 from. It is recommended to create a new folder 
+for every new run. The FASTQC outputs can be found here <b><a href='https://drive.google.com/drive/folders/1NhOYq3_P2Jr3aj_K0KbU1f-9iSWBbKso'>
 "GPP Cloud >R&D>FASTQC_outputs"</a></b>.
 </p>
 
 <p>
-<b>Step 3: Installing Docker and running CRISPResso</b><br>Installing CRISPResso via the Docker is the easiest way to use
+<b>Step 3: Installing Docker to run CRISPResso2</b><br>Installing CRISPResso via the Docker is the easiest way to use
 it. The way to do this is explained <a href="https://github.com/pinellolab/CRISPResso2#docker" target="_blank">here</a>.
 </p>
 
 <p>
 <b>Step 4: Setting up a batch file for CRISPResso2</b><br>Batch file for a CRISPResso2 run is a .txt file with various 
-columns indicating different parameters for each sample in the run. The different columns are as described below: 
+columns indicating different parameters for each sample in the run. This batch file should also be placed in the folder 
+created for the CRISPResso2 run. The different columns in a batch file are as described below: 
 <ol>
     <li><b>name</b>: Generate a name of the format, <font color="#8b0000"> BEV_sample_number_primerpair</font>
     for each sample. For example, <font color="blue">the name for sample 1 would be BEV_001_F1_A1_R1_A1, where 001 is 
@@ -82,11 +84,28 @@ columns indicating different parameters for each sample in the run. The differen
         </tr>
     </tbody>
 </table>
+<p>The sample "BEV_010_F1_A1_R1_A1" is a base editor sample and "BEV_016_F1_A2_R1_A2" is an SpCas9 knockout sample as 
+indicated by the "w" and "wc" columns.</p>
+
+<p>
+<b>Step 5: Running CRISPResso2</b><br>To run CRISPResso2,
+<ol>
+    <li>Make sure Docker is running on your computer. If it is, you should see the Docker logo on your menu bar which 
+    when clicked on should say "Docker Desktop is running".</li> 
+    <li>Make sure you are running CRISPResso2 in the folder with the batch file. This can be done using the cd command.
+    The outputs will be generated in this folder as well. </li>
+    <li>Finally, open your terminal and type the following command:<br>
+    <b>docker run -v ${PWD}:/DATA -w /DATA -i pinellolab/crispresso2 CRISPRessoBatch --batch_settings [batch file name] 
+    --skip_failed --suppress-plots</b></li>
+</ol>
+
 <p>
 <b>Few additional tips/tricks:</b>
 <ul>
     <li>For experiments with both knockout and base editor samples, the quantification window size and window center 
     parameters can be toggled appropriately to run all samples together.</li>
-    <li></li>
+    <li>--skip_failed is a good argument to use while running batch mode. This argument makes sure the job does not quit
+    if one sample fails. The failed sample can be identified in the RUNNING_LOG file. </li>
+    <li>One common error you may encounter is <b>"CRISPResso batch #x was killed by your system. Please decrease the 
+    number of processes (-p) and run again."</b></li>
 </ul>
-</p>
