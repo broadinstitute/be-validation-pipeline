@@ -1,12 +1,9 @@
-# Base editor validation pipeline
-
-## Base editor screen validation analysis pipeline using CRISPResso2 
 This repository helps set up an analysis pipeline to analyze base editor validation experiments using CRISPResso2 
 (https://github.com/pinellolab/CRISPResso2).
 <p>
 <b>Step 1: Downloading & demultiplexing files</b><br>Once sequencing files are received from WalkUp, please use the 
-"Setup.ipynb" notebook to download files, demultiplex files if necessary, make a backup and run FASTQC (quality check) 
-on the files.
+"Setup.ipynb" notebook in the "notebooks" folder of this project on GitHub to download files, demultiplex files if necessary, make a backup and 
+run FASTQC (quality check) on the files.
 </p>
 
 <p>
@@ -112,3 +109,8 @@ indicated by the "w" and "wc" columns.</p>
     error.  If not, please try increasing the number of resources such as "CPUs" and "Memory" in your Docker 
     preferences.</li>
 </ul>
+
+<p>
+<b>Step 6: Analyzing CRISPResso2 results</b><br> Please use the "BEV_allele_frequencies_v4.ipynb" notebook in the 
+"notebooks" folder of this project on GitHub to further analyze your data.  
+</p>
