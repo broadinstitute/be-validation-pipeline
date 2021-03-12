@@ -2,8 +2,8 @@ This repository helps set up an analysis pipeline to analyze base editor validat
 (https://github.com/pinellolab/CRISPResso2).
 <p>
 <b>Step 1: Downloading & demultiplexing files</b><br>Once sequencing files are received from WalkUp, please use the 
-"Setup.ipynb" notebook in the "notebooks" folder of this project on GitHub to download files, demultiplex files if necessary, make a backup and 
-run FASTQC (quality check) on the files.
+"Setup.ipynb" notebook in the "notebooks" folder <a href="https://github.com/mhegde/be-validation-pipeline">here</a> on 
+GitHub to download files, demultiplex files if necessary, make a backup and run FASTQC (quality check) on the files.
 </p>
 
 <p>
@@ -112,5 +112,5 @@ indicated by the "w" and "wc" columns.</p>
 
 <p>
 <b>Step 6: Analyzing CRISPResso2 results</b><br> Please use the "BEV_allele_frequencies_v4.ipynb" notebook in the 
-"notebooks" folder of this project on GitHub to further analyze your data.  
+"notebooks" folder <a href="https://github.com/mhegde/be-validation-pipeline">here</a> to further analyze your data.  
 </p>
