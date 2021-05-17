@@ -94,7 +94,7 @@ indicated by the "w" and "wc" columns.</p>
     The outputs will be generated in this folder as well. </li>
     <li>Finally, open your terminal and type the following command:<br>
     <b>docker run -v ${PWD}:/DATA -w /DATA -i pinellolab/crispresso2 CRISPRessoBatch --batch_settings [batch file name] 
-    --skip_failed --suppress_plots</b></li>
+    --skip_failed</b></li>
 </ol>
 
 <p>
