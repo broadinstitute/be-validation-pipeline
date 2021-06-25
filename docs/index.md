@@ -1,17 +1,17 @@
-This repository helps set up an analysis pipeline to analyze base editor validation experiments using CRISPResso2 
+This repository helps set up an analysis pipeline to analyze base editor validation experiments using [CRISPResso2] 
 (https://github.com/pinellolab/CRISPResso2).
 <p>
 <b>Step 1: Downloading & demultiplexing files</b><br>Once sequencing files are received from WalkUp, please use the 
-"Setup.ipynb" notebook in the "notebooks" folder <a href="https://github.com/mhegde/be-validation-pipeline">here</a> on 
-GitHub to download files, demultiplex files if necessary, make a backup and run FASTQC (quality check) on the files.
+"Setup.ipynb" notebook in the "notebooks" folder <a href="https://github.com/mhegde/be-validation-pipeline" target="_blank">
+here</a> on GitHub to download files, demultiplex files if necessary, make a backup and run FASTQC (quality check) on the files.
 </p>
 
 <p>
 <b>Step 2: Accessing sequencing files for CRISPResso2</b><br>Once the setup notebook has been run the sequencing files 
-should be available at <b><a href='https://drive.google.com/drive/folders/1uMXOLjvfY9TNlhwj0fVcTp6k2-heQe0c'>"GPP Cloud 
->R&D>Sequencing_Backup"</a></b>. They can be downloaded from here on to your local machine for running CRISPResso2. The
+should be available at <b><a href='https://drive.google.com/drive/folders/1uMXOLjvfY9TNlhwj0fVcTp6k2-heQe0c' target="_blank">
+"GPP Cloud>R&D>Sequencing_Backup"</a></b>. They can be downloaded from here on to your local machine for running CRISPResso2. The
 input files should all be in the folder where you will run CRISPResso2 from. It is recommended to create a new folder 
-for every new run. The FASTQC outputs can be found here <b><a href='https://drive.google.com/drive/folders/1NhOYq3_P2Jr3aj_K0KbU1f-9iSWBbKso'>
+for every new run. The FASTQC outputs can be found here <b><a href='https://drive.google.com/drive/folders/1NhOYq3_P2Jr3aj_K0KbU1f-9iSWBbKso' target="_blank">
 "GPP Cloud >R&D>FASTQC_outputs"</a></b>.
 </p>
 
@@ -23,7 +23,10 @@ it. The way to do this is explained <a href="https://github.com/pinellolab/CRISP
 <p>
 <b>Step 4: Setting up a batch file for CRISPResso2</b><br>Batch file for a CRISPResso2 run is a .txt file with various 
 columns indicating different parameters for each sample in the run. This batch file should also be placed in the folder 
-created for the CRISPResso2 run. The different columns in a batch file are as described below: 
+created for the CRISPResso2 run. Please refer to the **"Rev_Com_Documentation.html"** to input the appropriate reference and 
+guide sequences. 
+
+The different columns in a batch file are as described below: 
 <ol>
     <li><b>name</b>: Generate a name of the format, <font color="#8b0000"> BEV_samplenumber_primerpair</font>
     for each sample. For example, <font color="blue">the name for sample 1 would be BEV_001_F1_A1_R1_A1, where 001 is 
@@ -92,9 +95,11 @@ indicated by the "w" and "wc" columns.</p>
     when clicked on should say "Docker Desktop is running".</li> 
     <li>Make sure you are running CRISPResso2 in the folder with the batch file. This can be done using the cd command.
     The outputs will be generated in this folder as well. </li>
+    <li>If you are running CRISPResso exclusively on base editing samples, please use the --base_edit argument as indicated
+    below.</li>
     <li>Finally, open your terminal and type the following command:<br>
     <b>docker run -v ${PWD}:/DATA -w /DATA -i pinellolab/crispresso2 CRISPRessoBatch --batch_settings [batch file name] 
-    --skip_failed</b></li>
+    --skip_failed --base-edit</b></li>
 </ol>
 
 <p>
@@ -108,9 +113,13 @@ indicated by the "w" and "wc" columns.</p>
     number of processes (-p) and run again."</b> Using  the --suppress-plots or --suppress-report arguments might fix this 
     error.  If not, please try increasing the number of resources such as "CPUs" and "Memory" in your Docker 
     preferences.</li>
+    <li>If you are encountering an error where CRISPResso2 is not able to align any reads to your reference sequence, 
+    first check your reference sequence and then consider changing <b>--default_min_aln_score</b> argument to 
+    <font color='blue'>50</font>. The default value is 60. </li>
 </ul>
 
 <p>
-<b>Step 6: Analyzing CRISPResso2 results</b><br> Please use the "BEV_allele_frequencies_v4.ipynb" notebook in the 
-"notebooks" folder <a href="https://github.com/mhegde/be-validation-pipeline">here</a> to further analyze your data.  
+<b>Step 6: Analyzing CRISPResso2 results</b><br> Please use the "BEV_allele_frequencies.ipynb", "BEV_editing_efficiency.ipynb"
+and "BEV_nucleotide_percentage_plots.ipynb" notebooks in the "notebooks" folder 
+<a href="https://github.com/mhegde/be-validation-pipeline" target="_blank">here</a> to further analyze your data.  
 </p>
