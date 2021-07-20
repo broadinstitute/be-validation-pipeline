@@ -85,8 +85,7 @@ To run CRISPResso2,
     this error.  If not, please try increasing the number of resources such as "CPUs" and "Memory" in your Docker 
     preferences.
     + If you are encountering an error where CRISPResso2 is not able to align any reads to your reference sequence, 
-    first check your reference sequence and then consider changing `--default_min_aln_score` argument to 
-    <font color='blue'>50</font>. The default value is 60.
+    first check your reference sequence and then consider changing `--default_min_aln_score` argument to <font color='blue'>50</font>. The default value is 60.
 
 **Step 5: Analyzing CRISPResso2 results**
 
