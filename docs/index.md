@@ -8,6 +8,7 @@ If not, please demultiplex the files such that all the reads for a sample are in
 * Please make sure these demultiplexed files are downloaded onto your local machine before running CRISPResso2. 
 * Create a folder to save all the files relevant to the CRISPResso2 run. Within the main folder another folder can be
 created to save the input fastq files as shown. 
+
 ![Folder Structure](images/folder_structure.png)
 
 **Step 2: Installing Docker to run CRISPResso2**
