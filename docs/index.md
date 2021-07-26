@@ -72,7 +72,7 @@ To run CRISPResso2,
 4. Finally, open your terminal and type the following command:
    
     `docker run -v ${PWD}:/DATA -w /DATA -i pinellolab/crispresso2 CRISPRessoBatch --batch_settings [batch file name] 
-    --skip_failed --base-edit`
+    --skip_failed --base_edit`
    
     **Few additional tips/tricks:**
 
