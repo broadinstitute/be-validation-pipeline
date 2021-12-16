@@ -2,7 +2,7 @@
 <html>
 <head><meta charset="utf-8" />
 
-<title>Rev_Com_Documentation</title>
+<title>Sequence_Orientation_Documentation_v2</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13077,7 +13077,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="CRISPResso-Reverse-Complementation">CRISPResso Reverse Complementation<a class="anchor-link" href="#CRISPResso-Reverse-Complementation">&#182;</a></h1>
+<h1 id="CRISPResso-and-BEV-notebook-Sequence-Orientations">CRISPResso and BEV notebook Sequence Orientations<a class="anchor-link" href="#CRISPResso-and-BEV-notebook-Sequence-Orientations">&#182;</a></h1>
 </div>
 </div>
 </div>
@@ -13092,21 +13092,81 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Input-for-running-CRISPResso">Input for running CRISPResso<a class="anchor-link" href="#Input-for-running-CRISPResso">&#182;</a></h2>
+<h2 id="Inputs-for-running-CRISPResso">Inputs for running CRISPResso<a class="anchor-link" href="#Inputs-for-running-CRISPResso">&#182;</a></h2>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3> Determine primer direction to get guide sequence </h3>
+<p><b> Batch file (BEV input) columns: </b></p>
+<table>
+<thead><tr>
+<th>name</th>
+<th>identifier</th>
+<th>amplicon_seq</th>
+<th style="text-align:right">guide_seq</th>
+<th style="text-align:right">w</th>
+<th>wc</th>
+<th>exclude_bp_from_left</th>
+<th>exclude_bp_from_right</th>
+<th style="text-align:right">plot_window_size</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>This document walks through the <b> amplicon_seq </b> and <b> guide_seq </b> columns. For all other parameter descriptions, please see the <a href="https://gpp-rnd.github.io/be-validation-pipeline/">Base Editor Validation Pipeline documentation</a> on GitHub.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In order to figure out which guide sequence to input, identify the direction from the forward primer to the reverse primer. The guide sequences that you input to CRISPResso should always be in this direction.</p>
+<p><h3> guide_seq</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Since CRISPResso only uses the guide_seq input for naming files and does not use the guide_seq for alignment, for simplicity and consistency,</p>
+<ul>
+<li>the guide_seq should be written <i> as designed</i>, irrespective of primer direction </li>
+<li>guide_seq always goes 5’-3’ with PAM on 3’ end</li>
+<li><b>guide sense strand</b>: the strand that contains the sequence that matches the mRNA</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="screenshots/Ex1_guide_seq.png???" alt="Ex.1 guide_seq"></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><h3> amplicon_seq</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>must always be on the <i>guide sense</i> strand, irrespective of primer direction</li>
+</ul>
 
 </div>
 </div>
@@ -13122,23 +13182,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="screenshots/RevComTrue_PrimerDirection.png" alt="Ex.1 Primer Direction"></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>In this case, since all input sequences are written in the 5' &#8594; 3' direction, and the forward to reverse primer direction is right to left, we can determine that the guide sequence will be on the <i> reverse DNA strand</i>, which is conventionally the bottom strand where the 5' &#8594; 3' direction is right to left.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="screenshots/RevComTrue_Guide.png" alt="Ex.1 Guide"></p>
+<p><img src="screenshots/Ex1_amplicon_seq.png??" alt="Ex.1 amplicon_seq"></p>
 
 </div>
 </div>
@@ -13171,7 +13215,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="screenshots/RevComTrue_FindCRISPRessoRefSeq.png?1" alt="Ex.1 FindRefSeq"></p>
+<p><img src="screenshots/Ex1_FindCRISPRessoRefSeq.png?1" alt="Ex.1 FindRefSeq"></p>
 
 </div>
 </div>
@@ -13186,7 +13230,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The reference sequence that CRISPResso outputs is a certain number of nucleotides (determined by the quantification window parameter) upstream and downstream of the input guide sequence. Therefore, it will be on the <b>same strand</b> as the input guide sequence.</p>
+<p>The reference sequence that CRISPResso outputs is a certain number of nucleotides (determined by the quantification window parameter) upstream and downstream of the input guide sequence. Therefore, it will be in the <b>guide sense</b> direction.</p>
 
 </div>
 </div>
@@ -13202,7 +13246,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="screenshots/RevComTrue_CRISPRessoRefSeq.png" alt="Ex.1 CRISPRessoRefSeq"></p>
+<p><img src="screenshots/Ex1_CRISPRessoRefSeq.png" alt="Ex.1 CRISPRessoRefSeq"></p>
 
 </div>
 </div>
@@ -13218,7 +13262,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="screenshots/RevComTrue_TranslationRefSeq.png" alt="Ex.1 TranslationRefSeq"></p>
+<p><img src="screenshots/Ex1_translation_ref_seq.png" alt="Ex.1 TranslationRefSeq"></p>
 
 </div>
 </div>
@@ -13226,7 +13270,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In this case, the <i>forward DNA strand</i> is being translated, so the reference sequence for translation is the reverse complement of the reference sequence that CRISPResso outputs. Therefore, in this case the reference sequence for the notebook metadata file is tgtcttttctatgatctctttagGGGTGACCCAGTCTATT.</p>
+<p>In this case, the <i>forward DNA strand</i> is being translated, so the reference sequence for translation is the reverse complement of the reference sequence that CRISPResso outputs. Therefore, in this case the reference sequence for the notebook metadata file is TTCCTCTTGCAGCAGCCAGACTGCCTTCCGGGTCACTGCCATGGAGGAGCCGCAGTCAGATCCTAGCGTCGAGCCCCCTC.</p>
 
 </div>
 </div>
@@ -13253,7 +13297,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="screenshots/RevComTrue_Summary.png" alt="Ex.1 rev_com"></p>
+<p><img src="screenshots/Ex1_rev_com.png" alt="Ex.1 rev_com"></p>
 
 </div>
 </div>
@@ -13274,11 +13318,13 @@ div#notebook {
 <thead><tr>
 <th>sg</th>
 <th>sgRNA_sequence</th>
-<th>ref_seq</th>
+<th>translation_ref_seq</th>
 <th style="text-align:right">BEV_start</th>
 <th style="text-align:right">BEV_end</th>
 <th>primer</th>
-<th style="text-align:right">frame</th>
+<th>frame</th>
+<th>first_codon</th>
+<th style="text-align:right">last_codon</th>
 <th style="text-align:right">rev_com</th>
 <th>BEV_ref</th>
 <th>BEV_test</th>
@@ -13286,151 +13332,18 @@ div#notebook {
 </thead>
 <tbody>
 <tr>
-<td>397</td>
-<td>GTCACCCCTAAAGAGATCAT</td>
-<td>tgtcttttctatgatctctttagGGGTGACCCAGTCTATT</td>
-<td style="text-align:right">7</td>
-<td style="text-align:right">12</td>
-<td>F_C12_R_C12</td>
-<td style="text-align:right">2</td>
+<td>1</td>
+<td>GCTCCTCCATGGCAGTGACC</td>
+<td>[TTCCTCTTGCAGCAGCCAGACTGCCTTCCGGGTCACTGCC]ATGGAGGAGCCGCAGTCAGATCCTAGCGTCGAGCCCCCTC</td>
+<td style="text-align:right">417</td>
+<td style="text-align:right">426</td>
+<td>F3_R2</td>
+<td>1</td>
+<td>ATG</td>
+<td style="text-align:right">CTG</td>
 <td style="text-align:right">True</td>
-<td>5;6</td>
-<td>9;10</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Another-Example">Another Example<a class="anchor-link" href="#Another-Example">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Primer-Direction">Primer Direction<a class="anchor-link" href="#Primer-Direction">&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="screenshots/RevComFalse_PrimerDirection.png" alt="Ex.2 Primer Direction"></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Guide-Sequence">Guide Sequence<a class="anchor-link" href="#Guide-Sequence">&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="screenshots/RevComFalse_Guide.png" alt="Ex.2 Guide"></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="CRISPResso-Reference-Sequence">CRISPResso Reference Sequence<a class="anchor-link" href="#CRISPResso-Reference-Sequence">&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="screenshots/RevComFalse_FindCRISPRessoRefSeq.png" alt="Ex.2 FindCRISPRessoRefSeq"></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="screenshots/RevComFalse_CRISPRessoRefSeq.png" alt="Ex.2 CRISPRessoRefSeq"></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Translation-Reference-Sequence">Translation Reference Sequence<a class="anchor-link" href="#Translation-Reference-Sequence">&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="screenshots/RevComFalse_TranslationRefSeq.png" alt="Ex.2 TranslationRefSeq"></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="rev_com">rev_com<a class="anchor-link" href="#rev_com">&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><img src="screenshots/RevComFalse_Summary.png" alt="Ex.2 RevCom"></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>In this case, since the guide sequence, CRISPResso reference sequence, and translation sequence are all on the forward DNA strand, <b> rev_com </b> is <b>False</b>.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Here is what the metadata file for the BEV_allele_frequencies notebook would look like for this example:</p>
-<table>
-<thead><tr>
-<th>sg</th>
-<th>sgRNA_sequence</th>
-<th>ref_seq</th>
-<th style="text-align:right">BEV_start</th>
-<th style="text-align:right">BEV_end</th>
-<th>primer</th>
-<th style="text-align:right">frame</th>
-<th style="text-align:right">rev_com</th>
-<th>BEV_ref</th>
-<th>BEV_test</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>RDA407</td>
-<td>CTGGACTCTGGAATCCATTC</td>
-<td>GCTGTTAGTCACTGGCAGCAACAGTCTTACCTGGACTCTGGAATCCATTCTGGTGCCACTACCACAGCTCCTTCTCTGAG</td>
-<td style="text-align:right">41</td>
-<td style="text-align:right">42</td>
-<td>F2_R2</td>
-<td style="text-align:right">1</td>
-<td style="text-align:right">False</td>
-<td>01;02</td>
-<td>41;42</td>
+<td>417;418</td>
+<td>425;426</td>
 </tr>
 </tbody>
 </table>
