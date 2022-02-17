@@ -63,11 +63,12 @@ The different columns in a batch file are as described below:
 
 Enter your email address for the notification email, then click the button that says "Run CRISPResso2." Similar to PoolQ, you will get a notification if your BEV run dies or succeeds. 
    
-    **Few additional tips/tricks:**
-    + For experiments with both knockout and base editor samples, the quantification window size and window center 
-    parameters can be toggled appropriately to run all samples together.
-    + Note: you should download the CRISPResso output from BEV, and look through the RUNNING_LOG file in the "crispresso_output" folder to make sure all your samples were aligned and analyzed properly. 
-    + If you are encountering an error where CRISPResso2 is not able to align any reads to your reference sequence, 
+   **Few additional tips/tricks:**
+
+   + For experiments with both knockout and base editor samples, the quantification window size and window center 
+    parameters can be toggled appropriately to run all samples together. 
+  + Note: you should download the CRISPResso output from BEV, and look through the RUNNING_LOG file in the "crispresso_output" folder to make sure all your samples were aligned and analyzed properly.
++ If you are encountering an error where CRISPResso2 is not able to align any reads to your reference sequence, 
     first check your reference sequence and then consider changing `--default_min_aln_score` argument to <font color='blue'>50</font>. The default value is 60.
 
 **Step 5: Analyzing CRISPResso2 results**
