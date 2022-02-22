@@ -50,14 +50,32 @@ This file will be used in each of the three BEV notebooks. **Please refer to [Se
 | 397   | GTCACCCCTAAAGAGATCAT | tgtcttttctatgatctctttagGGGTGACCCAGTCTATT | 7         | 12      |F_C12_R_C12 |  2    |TGG|ATT| True    | 5;6     | 9;10     |
 
 
-### Step 2: Run allele frequencies notebook
+### Step 3: Create correlation input file
+
+This file will be used to calculate Pearson correlations between replicates.
+
+**Columns**: 
+
+* **sg** : sg identifier 
+* **reps_for_correlation** : semicolon-separated BEV numbers of which to calculate the pairwise Pearson correlation of the log-normalized read counts
+
+**Example input:**
+    
+| sg      | reps_for_correlation |
+| ------- | -------------------: | 
+| 397     | 7;8 | 
+| 397     | 9;10 | 
+| 397     | 11;12 | 
+
+
+### Step 4: Run allele frequencies notebook
 
 Open [01_BEV_allele_frequencies.ipynb](notebooks/01_BEV_allele_frequencies.ipynb) to begin.
 
-### Step 3: Run nucleotide percentage notebook
+### Step 5: Run nucleotide percentage notebook
 
 Open [02_BEV_nucleotide_percentage_plots.ipynb](notebooks/02_BEV_nucleotide_percentage_plots.ipynb) to begin.
 
-### Step 4: Run editing efficiency notebook
+### Step 6: Run editing efficiency notebook
 
 Open [03_BEV_editing_efficiency.ipynb](notebooks/03_BEV_editing_efficiency.ipynb) to begin.
