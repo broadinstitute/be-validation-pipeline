@@ -96,7 +96,7 @@ Running CRISPResso2 via Docker is the easiest way to use it. The way to do this 
 
 Batch file for a CRISPResso2 run is a .txt file with various columns indicating different parameters for each sample 
 in the run. This batch file should also be placed in the folder created for the CRISPResso2 run. 
-**Please refer to the "[Sequence_Orientation_Documentation.html](Sequence_Orientation_Documentation.html)" to input the appropriate amplicon and guide sequences.** 
+<b>Please refer to the "[Sequence_Orientation_Documentation.html](Sequence_Orientation_Documentation.html)" to input the appropriate amplicon and guide sequences.</b>
 
 The different columns in a batch file are as described below:
 1. `name`: Generate a name of the format, <font color="#8b0000"> BEV_samplenumber_primerpair</font>
