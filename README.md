@@ -2,6 +2,8 @@
 
 Welcome to the BEV pipeline! This analysis pipeline begins after you have received sequencing files back after conducting a base editor validation experiment. 
 
+### Before beginning, please download all the files in this repo by clicking on the <font color='green'> Code </font> button, then selecting "Download ZIP." This zip file will then be saved to your Downloads folder, which you can then move to wherever you'd like to conduct your analysis.
+
 ## Part 1: Run BEV on GPP LIMS
 
 [CRISPResso2](https://github.com/pinellolab/CRISPResso2) is our preferred tool for analysis of validation outcomes. To begin, please follow the steps described [here](https://gpp-rnd.github.io/be-validation-pipeline/). 
