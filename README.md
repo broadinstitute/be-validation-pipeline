@@ -2,7 +2,9 @@
 
 Welcome to the BEV pipeline! This analysis pipeline begins after you have received sequencing files back after conducting a base editor validation experiment. 
 
-### Before beginning, please download all the files in this repo by clicking on the green "Code" button, then selecting "Download ZIP." This zip file will then be saved to your Downloads folder, which you can then move to wherever you'd like to conduct your analysis.
+### Before beginning, please download all the files in this repo by clicking on the green "Code" button, then selecting "Download ZIP." This zip file will then be saved to your Downloads folder, which you can then move to wherever you'd like to conduct your analysis. 
+
+### Please read and refer to the Sequence_Orientation_Documentation.html in the "docs" folder to ensure that all sequence inputs are in the correct orientation.
 
 ## Part 1: Run BEV on GPP LIMS
 
@@ -22,7 +24,7 @@ There are three Jupyter notebooks that use files outputted by CRISPResso to gene
 
 ### Step 1: Create Metainformation File
 
-This file will be used in each of the three BEV notebooks. **Please refer to [Sequence_Orientation_Documentation.html](docs/Sequence_Orientation_Documentation.html) to ensure that all sequence inputs are in the correct orientation. 
+This file will be used in each of the three BEV notebooks.  
 <br/><br/>
 **Columns**: 
 
@@ -72,12 +74,12 @@ This file will be used to calculate Pearson correlations between replicates.
 
 ### Step 4: Run allele frequencies notebook
 
-Open [01_BEV_allele_frequencies.ipynb](notebooks/01_BEV_allele_frequencies.ipynb) to begin.
+Open 01_BEV_allele_frequencies.ipynb in the "notebooks" folder to begin.
 
 ### Step 5: Run nucleotide percentage notebook
 
-Open [02_BEV_nucleotide_percentage_plots.ipynb](notebooks/02_BEV_nucleotide_percentage_plots.ipynb) to begin.
+Open 02_BEV_nucleotide_percentage_plots.ipynb in the "notebooks" folder to begin.
 
 ### Step 6: Run editing efficiency notebook
 
-Open [03_BEV_editing_efficiency.ipynb](notebooks/03_BEV_editing_efficiency.ipynb) to begin.
+Open 03_BEV_editing_efficiency.ipynb the "notebooks" folder to begin.
