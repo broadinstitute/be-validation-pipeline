@@ -34,13 +34,14 @@ This file will be used in each of the three BEV notebooks.
     * Ex. <font color='grey'>tgtcttttctatgatctctttag</font><font color='green'>GGGTGACCCAGTCTATT</font>
 * **BEV_start** : BEV number for first sample in sg
 * **BEV_end** : BEV number for last sample in sg
-* **primer** : name of primer pair (joined by '\_') used to amplify genomic locus as mentioned in sample name
-    * Ex. <font color='purple'>F_C12</font><font color = 'blue'><b>_</b></font><font color='green'>R_C12</font>
+* **primer** : name of primer pair (joined by '\_') used to amplify genomic locus as mentioned in sample name; this notation should match how the primers are named in the CRISPResso output files
+    * Ex 1. <font color='purple'>F_C12</font><font color = 'blue'><b>_</b></font><font color='green'>R_C12</font>
+    * Ex 2. F3A_R2B
 * **frame** : frame for translation (manually determined for each sg / primer pair); position of first coding nucleotide in reference sequence within codon; frame can be 1, 2, 3
     * Ex. given reference sequence: tgtcttttctatgatctctttag<font color='green'>**G**</font>G|GTG|ACC|CAG|TCT|ATT 
         since the first coding nucleotide of the reference sequence (<font color='green'><b>G</b></font>) is the 2nd nucleotide in its codon 
         (\_<font color='green'><b>G</b></font>G) &rightarrow; frame = 2
-* **first_codon** : first codon for translation 
+* **first_codon** : first codon for translation
 * **last_codon** : last codon for translation 
 * **rev_com** : samples for which reference sequence is on reverse strand 
 * **BEV_ref** : reference sample(s) for log-fold change (LFC) calculation (i.e. early time point, empty vector, etc.); if multiple BEV numbers are given, they should be separated by ';', and they will be treated as replicates that will be averaged
