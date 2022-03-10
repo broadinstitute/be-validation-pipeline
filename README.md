@@ -41,9 +41,14 @@ This file will be used in each of the three BEV notebooks.
     * Ex. given reference sequence: tgtcttttctatgatctctttag<font color='green'>**G**</font>G|GTG|ACC|CAG|TCT|ATT 
         since the first coding nucleotide of the reference sequence (<font color='green'><b>G</b></font>) is the 2nd nucleotide in its codon 
         (\_<font color='green'><b>G</b></font>G) &rightarrow; frame = 2
-* **first_codon** : first codon for translation
-* **last_codon** : last codon for translation 
-* **rev_com** : samples for which reference sequence is on reverse strand 
+* **first_codon** : first codon for translation (note: this codon may be incomplete in the translation_ref_seq input)
+    * Ex. given reference sequence: tgtcttttctatgatctctttag**GG**|GTG|ACC|CAG|TCT|ATT 
+        the first codon input would be **T**GG where the **T** was in the previous exon 
+
+* **last_codon** : last codon for translation (note: this codon may be incomplete in the translation_ref_seq input)
+    * Ex. given reference sequence: tgtcttttctatgatctctttagGG|GTG|ACC|CAG|TCT|**ATT** 
+        the last codon input would be ATT 
+* **rev_com** : "True" if the guide sequence/amplicon sequence are on the opposite strand from the strand being translated
 * **BEV_ref** : reference sample(s) for log-fold change (LFC) calculation (i.e. early time point, empty vector, etc.); if multiple BEV numbers are given, they should be separated by ';', and they will be treated as replicates that will be averaged
 * **BEV_test** : test sample(s) for LFC calculation; if multiple BEV numbers are given, they should be separated by ';', and they will be treated as replicates that will be averaged
 
