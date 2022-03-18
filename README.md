@@ -24,7 +24,8 @@ There are three Jupyter notebooks that use files outputted by CRISPResso to gene
 
 ### Step 1: Create Metainformation File
 
-This file will be used in each of the three BEV notebooks.  
+This file will be used in each of the three BEV notebooks. **Please refer to the Sequence_Orientation_Documentation.html 
+in the docs folder to make sure sequence inputs are formatted correctly** 
 <br/><br/>
 **Columns**: 
 
