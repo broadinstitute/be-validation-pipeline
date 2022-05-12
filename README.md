@@ -29,9 +29,10 @@ in the docs folder to make sure sequence inputs are formatted correctly**
 <br/><br/>
 **Columns**: 
 
-* **sg** : sg identifier 
+* **sg** : a short unique identifier for each row
 * **sgRNA_sequence** : sequence of sgRNA as designed 
-* **translation_ref_seq**: reference sequence outputted by CRISPResso formatted such that any intronic sequences are lower-case, exons are upper-case, and UTRs are indicated by square brackets (if applicable) <u> must be sequence on strand that is being translated; may not necessarily be the same strand as the sgRNA sequence</u> 
+* **translation_ref_seq**: this sequence can be retrieved by following these steps:
+    * reference sequence outputted by CRISPResso formatted such that any intronic sequences are lower-case, exons are upper-case, and UTRs are indicated by square brackets (if applicable) <u> must be sequence on strand that is being translated; may not necessarily be the same strand as the sgRNA sequence</u> 
     * Ex. <font color='grey'>tgtcttttctatgatctctttag</font><font color='green'>GGGTGACCCAGTCTATT</font>
 * **primer** : name of primer pair (joined by '\_') used to amplify genomic locus as mentioned in sample name; this notation should match how the primers are named in the CRISPResso output files
     * Ex 1. <font color='purple'>F_C12</font><font color = 'blue'><b>_</b></font><font color='green'>R_C12</font>
