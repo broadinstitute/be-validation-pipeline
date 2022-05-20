@@ -27,9 +27,9 @@ Batch file for a CRISPResso2 run is a .txt file with various columns indicating 
 in the run. The batch file for running CRISPResso2 on BEV is similar to the one used for running CRISPResso2 on a local machine, with some differences (bolded). <b>Please refer to the "[Sequence_Orientation_Documentation.html](Sequence_Orientation_Documentation.html)" to input the appropriate amplicon and guide sequences.</b>
 
 The different columns in a batch file are as described below:
-1. `name`: Generate a name of the format, <font color="#8b0000"> BEV_samplenumber_primerpair</font>
-    for each sample. For example, <font color="blue">the name for sample 1 would be BEV_001_F1_A1_R1_A1, where 001 is 
-    the sample number and F1_A1 is the forward primer and R1_A1 is the reverse primer</font>.
+1. `name`: Generate a name of the format, <font color="#8b0000"> BEV_samplenumber </font>
+    for each sample. For example, <font color="blue">the name for sample 1 would be BEV_001, where 001 is 
+    the sample number </font>.
 2. **`identifier`**: Condition name from conditions file 
 3. `amplicon_seq`: Relevant amplicon sequence for each sample. It is recommended to include the forward and the 
    reverse primers in the amplicon sequence. For more information on how to obtain the right amplicon sequence, refer 
@@ -100,8 +100,8 @@ in the run. This batch file should also be placed in the folder created for the 
 
 The different columns in a batch file are as described below:
 1. `name`: Generate a name of the format, <font color="#8b0000"> BEV_samplenumber_primerpair</font>
-    for each sample. For example, <font color="blue">the name for sample 1 would be BEV_001_F1_A1_R1_A1, where 001 is 
-    the sample number and F1_A1 is the forward primer and R1_A1 is the reverse primer</font>.
+    for each sample. For example, <font color="blue">the name for sample 1 would be BEV_001, where 001 is 
+    the sample number </font>.
 2. `fastq_r1`: Path to relevant demultiplexed FASTQ input files. It is recommended that you have all FASTQ
     inputs in a single folder.
 3. `amplicon_seq`: Relevant amplicon sequence for each sample. It is recommended to include the forward and the 
@@ -129,10 +129,10 @@ The different columns in a batch file are as described below:
 
     **name**|**fastq_r1**|**amplicon_seq**|**guide_seq**|**w**|**wc**
     :-----:|:-----:|:-----:|:-----:|:-----:|:-----:
-    BEV_010_F1_A1_R1_A1|validation-inputs/BEV/Plate1/BEV_010_F1_A1_R1_A1.construct.fastq.gz|GCTATTTAGTGTTATCCAAGGAACATCTTCAGTATCTCTAGGATTCTCTGAGCATGGCAGTTTCTGCTTAT|GGAACATCTTCAGTATCTCT|20|-10
-    BEV_016_F1_A2_R1\_A2|validation-inputs/BEV/Plate1/BEV_016_F1_A2_R1_A2.construct.fastq.gz|TTATATACCTTTTGGTTATATCATTCTTACATAAAGGACACTGTGAAGGCCCTTTCTTCTGGTTGAGAA|GTTATATCATTCTTACATAA|1|-3
+    BEV_010 |validation-inputs/BEV/Plate1/BEV_010_F1_A1_R1_A1.construct.fastq.gz|GCTATTTAGTGTTATCCAAGGAACATCTTCAGTATCTCTAGGATTCTCTGAGCATGGCAGTTTCTGCTTAT|GGAACATCTTCAGTATCTCT|20|-10
+    BEV_016 |validation-inputs/BEV/Plate1/BEV_016_F1_A2_R1_A2.construct.fastq.gz|TTATATACCTTTTGGTTATATCATTCTTACATAAAGGACACTGTGAAGGCCCTTTCTTCTGGTTGAGAA|GTTATATCATTCTTACATAA|1|-3
 
-    The sample "BEV_010_F1_A1_R1_A1" is a base editor sample and "BEV_016_F1_A2_R1_A2" is an SpCas9 knockout sample as 
+    The sample "BEV_010" is a base editor sample and "BEV_016" is an SpCas9 knockout sample as 
     indicated by the "w" and "wc" columns.
 
 **Step 4: Running CRISPResso2**

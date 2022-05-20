@@ -4,7 +4,7 @@ Welcome to the BEV pipeline! This analysis pipeline begins after you have receiv
 
 ### Before beginning, please download all the files in this repo by clicking on the green "Code" button, then selecting "Download ZIP." This zip file will then be saved to your Downloads folder, which you can then move to wherever you'd like to conduct your analysis. 
 
-### Please read and refer to the Sequence_Orientation_Documentation.html in the "docs" folder to ensure that all sequence inputs are in the correct orientation.
+### Please read and refer to the Sequence_Orientation_Documentation.ipynb in the "docs" folder to ensure that all sequence inputs are in the correct orientation.
 
 ## Part 1: Run BEV on GPP LIMS
 
@@ -24,17 +24,23 @@ There are three Jupyter notebooks that use files outputted by CRISPResso to gene
 
 ### Step 1: Create Metainformation File
 
-This file will be used in each of the three BEV notebooks. **Please refer to the Sequence_Orientation_Documentation.html 
-in the docs folder to make sure sequence inputs are formatted correctly** 
+This file will be used in each of the three BEV notebooks. **Please refer to the Sequence_Orientation_Documentation.ipynb 
+in the docs folder to make sure sequence inputs are formatted correctly.** 
 <br/><br/>
 **Columns**: 
 
 * **sg** : a short unique identifier for each row
-* **sgRNA_sequence** : sequence of sgRNA as designed 
-* **translation_ref_seq**: this sequence can be retrieved by following these steps:
-    * reference sequence outputted by CRISPResso formatted such that any intronic sequences are lower-case, exons are upper-case, and UTRs are indicated by square brackets (if applicable) <u> must be sequence on strand that is being translated; may not necessarily be the same strand as the sgRNA sequence</u> 
+* **sgRNA_sequence** : sequence of sgRNA as designed (please see 
+  [Sequence_Orientation_Documentation.ipynb](docs/Sequence_Orientation_Documentation.ipynb) 
+  for more information)
+* **translation_ref_seq**: this sequence can be retrieved by following the steps outlined in 
+  [Sequence_Orientation_Documentation.ipynb](docs/Sequence_Orientation_Documentation.ipynb) 
+    * reference sequence outputted by CRISPResso formatted such that any intronic sequences are lower-case, 
+      exons are upper-case, and UTRs are indicated by square brackets (if applicable) <u> must be sequence on strand 
+      that is being translated; may not necessarily be the same strand as the sgRNA sequence</u> 
     * Ex. <font color='grey'>tgtcttttctatgatctctttag</font><font color='green'>GGGTGACCCAGTCTATT</font>
-* **primer** : name of primer pair (joined by '\_') used to amplify genomic locus as mentioned in sample name; this notation should match how the primers are named in the CRISPResso output files
+* **primer** : name of primer pair (joined by '\_') used to amplify genomic locus as mentioned in sample name; 
+  if the two samples being compared in that row have different primers, leave this column blank
     * Ex 1. <font color='purple'>F_C12</font><font color = 'blue'><b>_</b></font><font color='green'>R_C12</font>
     * Ex 2. F3A_R2B
 * **frame** : frame for translation (manually determined for each sg / primer pair); position of first coding nucleotide in reference sequence within codon; frame can be 1, 2, 3
@@ -43,8 +49,7 @@ in the docs folder to make sure sequence inputs are formatted correctly**
         (\_<font color='green'><b>G</b></font>G) &rightarrow; frame = 2
 * **first_codon** : first codon for translation (note: this codon may be incomplete in the translation_ref_seq input)
     * Ex. given reference sequence: tgtcttttctatgatctctttag**GG**|GTG|ACC|CAG|TCT|ATT 
-        the first codon input would be **T**GG where the **T** was in the previous exon 
-
+        the first codon input would be **T**GG where the **T** was in the previous exon
 * **last_codon** : last codon for translation (note: this codon may be incomplete in the translation_ref_seq input)
     * Ex. given reference sequence: tgtcttttctatgatctctttagGG|GTG|ACC|CAG|TCT|**ATT** 
         the last codon input would be ATT 
