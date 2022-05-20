@@ -40,9 +40,11 @@ in the docs folder to make sure sequence inputs are formatted correctly.**
       that is being translated; may not necessarily be the same strand as the sgRNA sequence</u> 
     * Ex. <font color='grey'>tgtcttttctatgatctctttag</font><font color='green'>GGGTGACCCAGTCTATT</font>
 * **primer** : name of primer pair (joined by '\_') used to amplify genomic locus as mentioned in sample name; 
-  if the two samples being compared in that row have different primers, leave this column blank
+  if the BEV_ref and BEV_test samples in that row have different primers, you can either leave this column blank or 
+  include both primers separated by a semi-colon
     * Ex 1. <font color='purple'>F_C12</font><font color = 'blue'><b>_</b></font><font color='green'>R_C12</font>
     * Ex 2. F3A_R2B
+    * Ex 3. cDNAF1_R2;F2_R2
 * **frame** : frame for translation (manually determined for each sg / primer pair); position of first coding nucleotide in reference sequence within codon; frame can be 1, 2, 3
     * Ex. given reference sequence: tgtcttttctatgatctctttag<font color='green'>**G**</font>G|GTG|ACC|CAG|TCT|ATT 
         since the first coding nucleotide of the reference sequence (<font color='green'><b>G</b></font>) is the 2nd nucleotide in its codon 
