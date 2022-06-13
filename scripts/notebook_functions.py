@@ -131,7 +131,7 @@ def remove_utr(translation_ref_seq, aligned, rev_com):
     # get length of translation_ref_seq without brackets
     len_translation_ref_seq = len(translation_ref_seq.replace('[','').replace(']',''))
     
-    if rev_com: # need to reverse complement UTR from translation_ref_seq to match aligned seq
+    if rev_com == True: # need to reverse complement UTR from translation_ref_seq to match aligned seq
         # Reverse UTR index start, end positions if rev_com = True
         for num, i in enumerate(utr_start_end_list):
             start = i[0]
@@ -178,7 +178,7 @@ def remove_utr(translation_ref_seq, aligned, rev_com):
             new_aligned_utr = new_aligned[start_end_idx[0]:start_end_idx[1]+1]
 
             if new_aligned_utr != utr:
-                if rev_com:
+                if rev_com == True:
                     new_aligned_utr = cfs.revcom(new_aligned_utr)
                 
                 new_aligned_list.append(new_aligned_utr + ' (UTR)')
@@ -191,7 +191,7 @@ def remove_utr(translation_ref_seq, aligned, rev_com):
 
             len_prev_utr = len_prev_utr+len(utr) 
 
-        if rev_com: # Now that UTR has been found, reverse complement again so correct translation input
+        if rev_com == True: # Now that UTR has been found, reverse complement again so correct translation input
             new_aligned = cfs.revcom(new_aligned)
 
         new_aligned_list.append(new_aligned)
@@ -253,7 +253,7 @@ def remove_introns(translation_ref_seq, aligned, rev_com):
     new_intron_start_end_list = []
     new_introns = []    
 
-    if rev_com:
+    if rev_com == True:
         # Reverse intron index positions if rev_com = True
         for i in intron_start_end_list:
             new_idx_start = -(i[1]+1) # reverse index
@@ -295,7 +295,7 @@ def remove_introns(translation_ref_seq, aligned, rev_com):
             
             # Check if bases at intron positions in aligned seq match intron
             if new_aligned_intron != intron.upper():
-                if rev_com:
+                if rev_com == True:
                     new_aligned_intron = cfs.revcom(new_aligned_intron)
                 
                 new_aligned_list.append(new_aligned_intron + ' (intron)')
@@ -311,7 +311,7 @@ def remove_introns(translation_ref_seq, aligned, rev_com):
 
             len_prev_intron = len_prev_intron + len(intron)
 
-        if rev_com:
+        if rev_com == True:
             new_aligned = cfs.revcom(new_aligned)
 
         new_aligned_list.append(new_aligned)
@@ -365,7 +365,7 @@ def remove_utr_intron_combo(translation_ref_seq, aligned, rev_com):
         
         # Check if bases at removal positions in aligned seq match removal_seq
         if new_aligned_to_remove != removal_seq:
-            if rev_com:
+            if rev_com == True:
                 new_aligned_to_remove = cfs.revcom(new_aligned_to_remove)
             if removal_row['type'] == 'UTR':
                 new_aligned_list.append(new_aligned_to_remove + ' (UTR)')
@@ -382,7 +382,7 @@ def remove_utr_intron_combo(translation_ref_seq, aligned, rev_com):
             new_aligned = new_aligned[:start_end_idx[0]]+new_aligned[start_end_idx[1]+1:]
         len_prev_removal = len_prev_removal + len(removal_seq)
 
-    if rev_com:
+    if rev_com == True:
         new_aligned = cfs.revcom(new_aligned)
     new_aligned_list.append(new_aligned)
     return new_aligned_list
@@ -946,7 +946,7 @@ def process_data_v2(data, bev_string_id, CRISPResso_filepath, read_count_percent
         # Store full aligned sequence and reference sequence in correct orientation in output table
         # check if Aligned Sequence needs to be reverse complemented before translating
         rev_com = data.loc[i, 'rev_com']
-        if rev_com:
+        if rev_com == True:
             merge.loc[:,'Aligned_Sequence'] = merge.loc[:,'Aligned_Sequence'].apply(cfs.revcom)
             merge.loc[:,'Reference_Sequence'] = merge.loc[:,'Reference_Sequence'].apply(cfs.revcom)
 
@@ -960,7 +960,7 @@ def process_data_v2(data, bev_string_id, CRISPResso_filepath, read_count_percent
         print('no UTRs or introns')
         # check if Aligned Sequence needs to be reverse complemented before translating
         rev_com = data.loc[i, 'rev_com']
-        if rev_com:
+        if rev_com == True:
             merge.loc[:,'Aligned_Sequence'] = merge.loc[:,'Aligned_Sequence'].apply(cfs.revcom)
             merge.loc[:,'Reference_Sequence'] = merge.loc[:,'Reference_Sequence'].apply(cfs.revcom)
 
