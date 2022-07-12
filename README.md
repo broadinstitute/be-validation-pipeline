@@ -8,7 +8,7 @@ Welcome to the BEV pipeline! This analysis pipeline begins after you have receiv
 
 ## Part 1: Run BEV on GPP LIMS
 
-[CRISPResso2](https://github.com/pinellolab/CRISPResso2) is our preferred tool for analysis of validation outcomes. To begin, please follow the steps described [here](https://gpp-rnd.github.io/be-validation-pipeline/). 
+[CRISPResso2](https://github.com/pinellolab/CRISPResso2) is our preferred tool for analysis of validation outcomes. To begin, please follow the steps described [here](https://broadinstitute.github.io/be-validation-pipeline/). 
 
 ## Part 2: Run BEV notebooks
 
