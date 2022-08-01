@@ -62,9 +62,9 @@ in the docs folder to make sure sequence inputs are formatted correctly.**
 **Example input:**
 
 
-| sg      | sgRNA_sequence       | translation_ref_seq                                  | BEV_start | BEV_end | primer        | frame | first_codon| last_codon| rev_com | BEV_ref | BEV_test |
+| sg      | sgRNA_sequence       | translation_ref_seq                                  | primer        | frame | first_codon| last_codon| rev_com | BEV_ref | BEV_test |
 | ------- | -------------------- | ---------------------------------------- |  -------: |  -----: | ------------- |  ----|----|---: | ------: | ------- | -------- |
-| 397   | GTCACCCCTAAAGAGATCAT | tgtcttttctatgatctctttagGGGTGACCCAGTCTATT | 7         | 12      |F_C12_R_C12 |  2    |TGG|ATT| True    | 5;6     | 9;10     |
+| 397   | GTCACCCCTAAAGAGATCAT | tgtcttttctatgatctctttagGGGTGACCCAGTCTATT |F_C12_R_C12 |  2    |TGG|ATT| True    | 5;6     | 9;10     |
 
 
 ### Step 3: Create correlation input file
