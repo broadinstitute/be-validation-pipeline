@@ -1,5 +1,5 @@
 Steps to set up an analysis pipeline to analyze base editor validation experiments using [CRISPResso2](https://github.com/pinellolab/CRISPResso2): <br/>
-    1. Using the [BEV tool](https://gpplims.broadinstitute.org/screening/bev/create) on GPP LIMS (available to GPP only) ([Jump to steps](#running-bev-tool-on-gpp-lims)) <br/>
+    1. Using the BEV tool on GPP LIMS (available to GPP only) ([Jump to steps](#running-bev-tool-on-gpp-lims)) <br/>
     2. On your local machine ([Jump to steps](#running-crispresso2-on-local-machine))
 
 ## Running BEV tool on GPP LIMS
